@@ -1,0 +1,10 @@
+.card {
+    width: 32%;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.navbar {
+    height: 5em;
+    margin-bottom: 2em;
+}
