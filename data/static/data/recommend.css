@@ -1,7 +1,10 @@
 .card {
-    width: 32%;
     margin: 0.5em;
     padding: 1em;
+}
+
+.col-md-4 {
+    max-width: 32%;
 }
 
 .navbar {

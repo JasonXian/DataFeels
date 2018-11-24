@@ -27,35 +27,44 @@
         <div class="row">
             {% for article in data.average %}
                 <div class="card col-md-4">
-                    <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    <a href="{{ article.url }}" target="_blank">
+                        <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ article.title }}</h5>
+                        <p>{{ article.sentiment_score }}</p>
                         <p class="card-text">{{ article.summary }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
         <hr>
-        <h3>These are on more on the positive side</h3>
+        <h3>These are more on the positive side</h3>
         <div class="row">
             {% for article in data.high %}
                 <div class="card col-md-4">
-                    <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    <a href="{{ article.url }}" target="_blank">
+                        <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ article.title }}</h5>
+                        <p>{{ article.sentiment_score }}</p>
                         <p class="card-text">{{ article.summary }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
         <hr>
-        <h3>These are on more on the negative side</h3>
+        <h3>These are more on the negative side</h3>
         <div class="row">
             {% for article in data.low %}
                 <div class="card col-md-4">
-                    <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    <a href="{{ article.url }}" target="_blank">
+                        <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ article.title }}</h5>
+                        <p>{{ article.sentiment_score }}</p>
                         <p class="card-text">{{ article.summary }}</p>
                     </div>
                 </div>
