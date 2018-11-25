@@ -33,7 +33,7 @@
                 {% for col in row %}
                     {% if col != 0 %}
                         <div class="card col-md-1-5">
-                            <a href="{{ col.url }}" target="_blank" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-title="{{ col.title }}" data-content="{{ col.summary }}">
+                            <a href="{{ col.url }}" target="_blank" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-title="{{ col.title }}" data-content="{{ col.summarization }}">
                                 <img class="card-img-top graph-img" src="{{ col.thumbnail }}">
                             </a>
                         </div>
