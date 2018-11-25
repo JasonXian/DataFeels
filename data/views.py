@@ -61,10 +61,13 @@ def graphify(data, topic):
     }
     return context
 
+graphData = graphify(cryptoData, 'cryptocurrency')
+
 data = {
     'cryptocurrency' : {
         'recommend': recommendify(cryptoData, 'cryptocurrency'),
-        'graph' : graphify(cryptoData, 'cryptocurrency'),
+        'graph' : graphData,
+        'wordcloud':graphData
     },
 }
 
@@ -79,3 +82,6 @@ def graph(request, topic):
 
 def heatmap(request, topic):
     return render(request, 'data/heatmap.html', {'topic': topic})
+
+def wordcloud(request, topic):
+    return render(request, 'data/wordcloud.html', data[topic]['wordcloud'])
