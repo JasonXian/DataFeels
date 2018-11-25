@@ -3,7 +3,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'data/bootstrap_lux.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'data/graph.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'data/recommend.css' %}">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">DataFeels</a>
@@ -12,24 +12,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
+                    <a class="nav-link" href="/data/recommend/{{ topic }}"> Recommend <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/data/graph/{{ topic }}"> Graph </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/data/heatmap/{{ topic }}"> HeatMap </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> WordCloud </a>
                 </li>
             </ul>
             <div class="form-inline my-2 my-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Topic of Interest" id="searchQry">
                 <button class="btn btn-secondary my-2 my-sm-0" id="searchBtn">Search</button>    
             </div>
-            </div>
         </div>
     </div>
 </nav>
 <div class="container">
-    <h3>Check out these topics</h3>
-    <hr>
-    <a href="/data/recommend/cryptocurrency">
-        <h3>Cryptocurrency</h3>
-    </a>
+    <img src="{% static cloud %}">
 </div>
 <script src="{% static 'data/search.js' %}"></script>

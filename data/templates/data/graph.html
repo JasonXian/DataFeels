@@ -18,6 +18,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#"> Graph <span class="sr-only">(current)</span> </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/data/heatmap/{{ topic }}"> HeatMap </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/data/wordcloud/{{ topic }}"> WordCloud </a>
+                </li>
             </ul>
             <div class="form-inline my-2 my-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Topic of Interest" id="searchQry">
@@ -26,40 +32,36 @@
         </div>
     </div>
 </nav>
-{% if sorted %}
-    <div class="container">
-        {% for row in sorted %}
-            <div class="row">
-                {% for col in row %}
-                    {% if col != 0 %}
-                        <div class="card col-md-1-5">
-                            <a href="{{ col.url }}" target="_blank" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-title="{{ col.title }}" data-content="{{ col.summary }}">
-                                <img class="card-img-top graph-img" src="{{ col.thumbnail }}">
-                            </a>
-                        </div>
-                    {% else %}
-                        <div class="col-md-1-5"></div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endfor %}
-        <div class="pull-down">
-            <div class="slidecontainer">
-                <input type="range" min="0" max="100" value="50" id="slider">
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h4>0</h4>
-                </div>
-                <div class="col-md-6">
-                    <h4 style="float:right;">1</h4>
-                </div>
-            </div>
-            <p><span id="output"></span></p>
+<div class="container">
+    {% for row in sorted %}
+        <div class="row">
+            {% for col in row %}
+                {% if col != 0 %}
+                    <div class="card col-md-1-5">
+                        <a href="{{ col.url }}" target="_blank" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-title="{{ col.title }}" data-content="{{ col.summarization }}">
+                            <img class="card-img-top graph-img" src="{{ col.thumbnail }}">
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col-md-1-5"></div>
+                {% endif %}
+            {% endfor %}
         </div>
+    {% endfor %}
+    <div class="pull-down">
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="50" id="slider">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>0</h4>
+            </div>
+            <div class="col-md-6">
+                <h4 style="float:right;">1</h4>
+            </div>
+        </div>
+        <p><span id="output"></span></p>
     </div>
-{% else %}
-    <p>No data is avaliable for this topic.</p>
-{% endif %}
+</div>
 <script src="{% static 'data/graph.js' %}"></script>
 <script src="{% static 'data/search.js' %}"></script>
