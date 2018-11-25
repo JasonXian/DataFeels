@@ -35,11 +35,11 @@
         {% for article in average %}
             <div class="card col-md-4">
                 <a href="{{ article.url }}" target="_blank">
-                    <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    <img class="card-img-top card-img-height" src="{{ article.thumbnail }}"/>
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
-                    <p>{{ article.sentiment_score }}</p>
+                    <p>Sentiment Score: {{ article.sentiment_score }}</p>
                     <p class="card-text">{{ article.summarization }}</p>
                 </div>
             </div>
@@ -51,11 +51,11 @@
         {% for article in high %}
             <div class="card col-md-4">
                 <a href="{{ article.url }}" target="_blank">
-                    <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    <img class="card-img-top card-img-height" src="{{ article.thumbnail }}"/>
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
-                    <p>{{ article.sentiment_score }}</p>
+                    <p>Sentiment Score: {{ article.sentiment_score }}</p>
                     <p class="card-text">{{ article.summarization }}</p>
                 </div>
             </div>
@@ -67,11 +67,11 @@
         {% for article in low %}
             <div class="card col-md-4">
                 <a href="{{ article.url }}" target="_blank">
-                    <img class="card-img-top" src="{{ article.thumbnail }}"/>
+                    <img class="card-img-top card-img-height" src="{{ article.thumbnail }}"/>
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
-                    <p>{{ article.sentiment_score }}</p>
+                    <p>Sentiment Score: {{ article.sentiment_score }}</p>
                     <p class="card-text">{{ article.summarization }}</p>
                 </div>
             </div>
