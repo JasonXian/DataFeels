@@ -12,14 +12,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#"> Recommend <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/data/graph/{{ data.topic }}"> Graph </a>
-            </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> Recommend <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/data/graph/{{ data.topic }}"> Graph </a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Topic of Interest" id="searchQry">
+                <button class="btn btn-secondary my-2 my-sm-0" id="searchBtn">Search</button>    
+            </div>
         </div>
-    </div>    
+    </div>
 </nav>
 {% if data %}
     <div class="container">
@@ -74,3 +79,4 @@
 {% else %}
     <p>No data for this topic is available.</p>
 {% endif %}
+<script src="{% static 'data/search.js' %}"></script>
