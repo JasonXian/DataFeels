@@ -6,10 +6,16 @@ import os
 import pandas as pd
 
 module_dir = os.path.dirname(__file__)
-file_path = os.path.join(module_dir, 'file.csv')
+
+file_path = os.path.join(module_dir, 'crypto-data.csv')
 df = pd.read_csv(file_path)
 cryptoData = df.to_dict(orient='records')
 cryptoData = sorted(cryptoData, key = lambda k: k['sentiment_score'])
+
+file_path = os.path.join(module_dir, 'oil-data.csv')
+df = pd.read_csv(file_path)
+oilData = df.to_dict(orient='records')
+oilData = sorted(oilData, key = lambda k: k['sentiment_score'])
 
 """
 article dict structure for reference
@@ -61,14 +67,15 @@ def graphify(data, topic):
     }
     return context
 
-graphData = graphify(cryptoData, 'cryptocurrency')
-
 data = {
     'cryptocurrency' : {
         'recommend': recommendify(cryptoData, 'cryptocurrency'),
-        'graph' : graphData,
-        'wordcloud':graphData
+        'graph' : graphify(cryptoData, 'cryptocurrency')
     },
+    'oil' : {
+        'recommend': recommendify(oilData, 'oil'),
+        'graph' : graphify(oilData, 'oil')
+    }
 }
 
 def index(request):
@@ -84,4 +91,4 @@ def heatmap(request, topic):
     return render(request, 'data/heatmap.html', {'topic': topic})
 
 def wordcloud(request, topic):
-    return render(request, 'data/wordcloud.html', data[topic]['wordcloud'])
+    return render(request, 'data/wordcloud.html', {'topic': topic, 'cloud': ('data/' + topic + '.png')})
