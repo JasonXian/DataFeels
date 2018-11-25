@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/data/graph/{{ topic }}"> Graph </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/data/heatmap/{{ topic }}"> HeatMap </a>
+                </li>
             </ul>
             <div class="form-inline my-2 my-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Topic of Interest" id="searchQry">
@@ -37,7 +40,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
                     <p>{{ article.sentiment_score }}</p>
-                    <p class="card-text">{{ article.summary }}</p>
+                    <p class="card-text">{{ article.summarization }}</p>
                 </div>
             </div>
         {% endfor %}
@@ -53,7 +56,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
                     <p>{{ article.sentiment_score }}</p>
-                    <p class="card-text">{{ article.summary }}</p>
+                    <p class="card-text">{{ article.summarization }}</p>
                 </div>
             </div>
         {% endfor %}

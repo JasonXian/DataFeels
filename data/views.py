@@ -76,3 +76,6 @@ def recommend(request, topic):
 
 def graph(request, topic):
     return render(request, 'data/graph.html', data[topic]['graph'])
+
+def heatmap(request, topic):
+    return render(request, 'data/heatmap.html', {'topic': topic})
