@@ -18,3 +18,8 @@ We learned how to build websites using Django, generate word clouds using matplo
 
 ## What's next for DataFeels
 Lots of improvements could still be made to this project and here are just some of the different things that could be done. The scraper created for the data required us to manually run the script for every new link but creating an automated scraper that built the correct data structures for us to directly pipeline to our website would be much more ideal. Next we would expand our website to have not just financial categories but any topic that has articles about it.
+
+## How to run on localhost
+1. Clone this in a local repository
+2. Then run "pip install -r requirements.txt"
+3. Then run "python manage.py runserver"
